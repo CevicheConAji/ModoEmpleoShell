@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ModoEmpleoShell.MainPage"
+             Title="Datos de matricula"
+             BackgroundColor="LightCyan"
+             >
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="20"
+            Margin="20"
+            >
+            
+            <HorizontalStackLayout>
+                <!--Curso-->
+                <Label Text="Curso:"
+                   FontSize="Medium"/>
+                <Label Text=""
+                   FontSize="Medium"/>
+            </HorizontalStackLayout>
+            
+            <HorizontalStackLayout>
+                <!--Precio inicial-->
+                <Label Text="Precio inicial:"
+                   FontSize="Medium"/>
+                <Label Text=""
+                   FontSize="Medium"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout >
+                <!--Forma de Pago-->
+                <Label Text="Forma de pago:"
+                   FontSize="Medium"/>
+                <Label Text=""
+                   FontSize="Medium"/>
+
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout
+                Spacing="24"
+                HorizontalOptions="Center">
+                
+                <Button
+                    x:Name="btnSeleccionarCurso"
+                    Clicked="btnSeleccionarCurso_Clicked"
+                    Text="Seleccionar Curso"/>
+                
+                <Button
+                    x:Name="btnSeleccionarFormaPago"
+                    Clicked="btnSeleccionarFormaPago_Clicked"
+                    Text="Seleccionar forma de Pago"/>
+                
+            </HorizontalStackLayout>
+            
+            <HorizontalStackLayout
+                HorizontalOptions="Center">
+                
+            <Button
+                x:Name="btnCalcularPrecio"
+                Clicked="btnCalcularPrecio_Clicked"
+                Text="Calcular precio"             
+                VerticalOptions="Center"/>
+            </HorizontalStackLayout>
+            
+            <Label>
+                
+            </Label>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
