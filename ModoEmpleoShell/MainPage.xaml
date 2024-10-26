@@ -17,23 +17,23 @@
                 <!--Curso-->
                 <Label Text="Curso:"
                    FontSize="Medium"/>
-                <Label Text=""
-                   FontSize="Medium"/>
+				<Label Text="{Binding CursoUsuario}"
+					   FontSize="Medium"></Label>
             </HorizontalStackLayout>
             
             <HorizontalStackLayout>
                 <!--Precio inicial-->
                 <Label Text="Precio inicial:"
                    FontSize="Medium"/>
-                <Label Text=""
-                   FontSize="Medium"/>
+                <Label Text="{Binding PrecioInicial}"
+					   FontSize="Medium"></Label>
             </HorizontalStackLayout>
 
             <HorizontalStackLayout >
                 <!--Forma de Pago-->
                 <Label Text="Forma de pago:"
                    FontSize="Medium"/>
-                <Label Text=""
+                <Label Text="{Binding FormaPago}"
                    FontSize="Medium"/>
 
             </HorizontalStackLayout>
@@ -63,10 +63,9 @@
                 Text="Calcular precio"             
                 VerticalOptions="Center"/>
             </HorizontalStackLayout>
-            
-            <Label>
-                
-            </Label>
+
+			<Label Text="{Binding PrecioFinal}"
+				    FontSize="Medium"/>
 
         </VerticalStackLayout>
     </ScrollView>
