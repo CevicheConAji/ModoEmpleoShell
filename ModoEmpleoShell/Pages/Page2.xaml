@@ -2,35 +2,27 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ModoEmpleoShell.Page2"
-             Title="Page2">
-    <HorizontalStackLayout
-        VerticalOptions="Center"
-        HorizontalOptions="Center">
+             Title="Seleccionar Curso">
 
-        <ImageButton
-            x:Name="btnCursoUFO"
-            Clicked="btnCursoUFO_Clicked"
-            Source="paul.png"
-            WidthRequest="200"
-            HeightRequest="200"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <Label 
-            Text="Curso de ufología"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+    <VerticalStackLayout Padding="20" HorizontalOptions="Center" Spacing="20">
 
-        <ImageButton
-            x:Name="btnCursoZombie"
-            Clicked="btnCursoZombie_Clicked"
-            Source="zombie.jpg"
-            WidthRequest="200"
-            HeightRequest="200"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <Label 
-            Text="Sobrevivir al apocalipsis zombie"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </HorizontalStackLayout>
+        <Label Text="Selecciona un curso" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center"/>
+
+        <!-- Curso Ufología -->
+        <Grid HorizontalOptions="Center" ColumnDefinitions="Auto" RowDefinitions="Auto,Auto">
+            <ImageButton Source="paul.png" WidthRequest="150" HeightRequest="150"
+                         Clicked="btnCursoUFO_Clicked" Grid.Row="0" Grid.Column="0"/>
+            <Label Text="Curso de Ufología" FontSize="Medium" HorizontalOptions="Center" Grid.Row="1" Grid.Column="0"/>
+        </Grid>
+
+        <!-- Curso Apocalipsis Zombie -->
+        <Grid HorizontalOptions="Center" ColumnDefinitions="Auto" RowDefinitions="Auto,Auto">
+            <ImageButton Source="zombie.jpg" WidthRequest="150" HeightRequest="150"
+                         Clicked="btnCursoZombie_Clicked" Grid.Row="0" Grid.Column="0"/>
+            <Label Text="Sobrevivir al Apocalipsis Zombie" FontSize="Medium" HorizontalOptions="Center" Grid.Row="1" Grid.Column="0"/>
+        </Grid>
+
+    </VerticalStackLayout>
+
 </ContentPage>
+

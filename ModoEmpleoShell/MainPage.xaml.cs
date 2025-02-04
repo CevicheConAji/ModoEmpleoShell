@@ -15,6 +15,7 @@
         {
             InitializeComponent();
             BindingContext = this;
+            ValidarBotonCalculo();
         }
         public int PrecioFinal
         {
@@ -23,6 +24,7 @@
             {
                 _precioFinal = value;
                 OnPropertyChanged();
+                ValidarBotonCalculo();
             }
         }
 
@@ -30,7 +32,9 @@
         { 
             get {return _formaPago;} 
             set { _formaPago = value;
-                OnPropertyChanged(); } 
+                OnPropertyChanged();
+                ValidarBotonCalculo();
+            } 
         }
         public int PrecioInicial 
         { 
@@ -39,6 +43,7 @@
             {
                 _precioInicial = value;
                 OnPropertyChanged();
+                ValidarBotonCalculo();
             } 
         }
         public string? CursoUsuario 
@@ -48,6 +53,7 @@
             {
                 _cursoUsuario = value;
                 OnPropertyChanged();
+                ValidarBotonCalculo();
             }
         }
 
@@ -59,21 +65,26 @@
 
         private void btnCalcularPrecio_Clicked(object sender, EventArgs e)
         {
-            _precioFinal = _precioInicial;
-
-            if (_formaPago == "Efectivo")
+            if (_formaPago == "Tarjeta")
             {
-                _precioFinal = (int)(_precioInicial - (_precioInicial * 0.1));
-                OnPropertyChanged(nameof(PrecioFinal));
+                _precioFinal = (int)(_precioInicial - (_precioInicial * 0.1)); // Descuento del 10%
             }
             else
             {
-                OnPropertyChanged(nameof(PrecioFinal));
+                _precioFinal = _precioInicial;
             }
+
+            OnPropertyChanged(nameof(PrecioFinal));
         }
         private async void btnSeleccionarFormaPago_Clicked(object sender, EventArgs e)
         {
             await Shell.Current.GoToAsync($"Page3?cursoUsuario={_cursoUsuario}&precioInicial={_precioInicial}");
+        }
+        private void ValidarBotonCalculo()
+        {
+            btnCalcularPrecio.IsEnabled = !string.IsNullOrEmpty(CursoUsuario)
+                                        && !string.IsNullOrEmpty(FormaPago)
+                                        && PrecioInicial > 0;
         }
     }
 

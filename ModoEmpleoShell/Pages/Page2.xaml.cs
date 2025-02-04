@@ -24,7 +24,7 @@ public partial class Page2 : ContentPage
     {
         _cursoUsuario = "Ufología";
         _precioInicial = 100;
-        await Shell.Current.GoToAsync($"//MainPage?cursoUsuario={_cursoUsuario}&precioInicial={_precioInicial}&?formaPago={_formaPago}");
+        await Shell.Current.GoToAsync($"//MainPage?cursoUsuario={_cursoUsuario}&precioInicial={_precioInicial}&formaPago={_formaPago}");
     }
 
     private async void btnCursoZombie_Clicked(object sender, EventArgs e)

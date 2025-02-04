@@ -2,70 +2,60 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ModoEmpleoShell.MainPage"
-             Title="Datos de matricula"
-             BackgroundColor="LightCyan"
+             Title="Datos de matrícula"
              >
 
     <ScrollView>
-        <VerticalStackLayout
-            Padding="30,0"
-            Spacing="20"
-            Margin="20"
-            >
-            
-            <HorizontalStackLayout>
-                <!--Curso-->
-                <Label Text="Curso:"
-                   FontSize="Medium"/>
-				<Label Text="{Binding CursoUsuario}"
-					   FontSize="Medium"></Label>
-            </HorizontalStackLayout>
-            
-            <HorizontalStackLayout>
-                <!--Precio inicial-->
-                <Label Text="Precio inicial:"
-                   FontSize="Medium"/>
-                <Label Text="{Binding PrecioInicial}"
-					   FontSize="Medium"></Label>
+        <VerticalStackLayout Padding="20">
+
+            <!-- Información del curso y forma de pago -->
+            <Grid ColumnDefinitions="*,2*" RowDefinitions="Auto,Auto,Auto,Auto" Margin="0,20">
+
+                <Label Text="Curso:" FontSize="Medium" Grid.Row="0" Grid.Column="0"/>
+                <Label Text="{Binding CursoUsuario}" FontSize="Medium" Grid.Row="0" Grid.Column="1" TextColor="Blue"/>
+
+                <Label Text="Precio inicial:" FontSize="Medium" Grid.Row="1" Grid.Column="0"/>
+                <Label Text="{Binding PrecioInicial}" FontSize="Medium" Grid.Row="1" Grid.Column="1" TextColor="Green"/>
+
+                <Label Text="Forma de pago:" FontSize="Medium" Grid.Row="2" Grid.Column="0"/>
+                <Label Text="{Binding FormaPago}" FontSize="Medium" Grid.Row="2" Grid.Column="1" TextColor="Purple"/>
+
+            </Grid>
+
+            <!-- Botones de Selección -->
+            <HorizontalStackLayout Spacing="20" HorizontalOptions="Center">
+                <Button x:Name="btnSeleccionarCurso"
+                        Clicked="btnSeleccionarCurso_Clicked"
+                        Text="Seleccionar Curso"
+                        BackgroundColor="#2196F3"
+                        TextColor="White"
+                        Padding="10"/>
+
+                <Button x:Name="btnSeleccionarFormaPago"
+                        Clicked="btnSeleccionarFormaPago_Clicked"
+                        Text="Seleccionar forma de Pago"
+                        BackgroundColor="#FF9800"
+                        TextColor="White"
+                        Padding="10"/>
             </HorizontalStackLayout>
 
-            <HorizontalStackLayout >
-                <!--Forma de Pago-->
-                <Label Text="Forma de pago:"
-                   FontSize="Medium"/>
-                <Label Text="{Binding FormaPago}"
-                   FontSize="Medium"/>
+            <!-- Botón de Cálculo -->
+            <Button x:Name="btnCalcularPrecio"
+                    Clicked="btnCalcularPrecio_Clicked"
+                    Text="Calcular precio"
+                    BackgroundColor="Green"
+                    TextColor="White"
+                    Padding="10"
+                    IsEnabled="False"
+                    Margin="10"/>
 
-            </HorizontalStackLayout>
-
-            <HorizontalStackLayout
-                Spacing="24"
-                HorizontalOptions="Center">
-                
-                <Button
-                    x:Name="btnSeleccionarCurso"
-                    Clicked="btnSeleccionarCurso_Clicked"
-                    Text="Seleccionar Curso"/>
-                
-                <Button
-                    x:Name="btnSeleccionarFormaPago"
-                    Clicked="btnSeleccionarFormaPago_Clicked"
-                    Text="Seleccionar forma de Pago"/>
-                
-            </HorizontalStackLayout>
-            
-            <HorizontalStackLayout
-                HorizontalOptions="Center">
-                
-            <Button
-                x:Name="btnCalcularPrecio"
-                Clicked="btnCalcularPrecio_Clicked"
-                Text="Calcular precio"             
-                VerticalOptions="Center"/>
-            </HorizontalStackLayout>
-
-			<Label Text="{Binding PrecioFinal}"
-				    FontSize="Medium"/>
+            <!-- Resultado del Precio Final -->
+            <Label Text="{Binding PrecioFinal}"
+                   FontSize="Large"
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="Center"
+                   Margin="10"
+                   TextColor="Red"/>
 
         </VerticalStackLayout>
     </ScrollView>

@@ -2,35 +2,26 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ModoEmpleoShell.Pages.Page3"
-             Title="Page3">
-    <HorizontalStackLayout
-        VerticalOptions="Center"
-        HorizontalOptions="Center">
+             Title="Seleccionar Forma de Pago">
 
-        <ImageButton
-            x:Name="btnEfectivo"
-            Clicked="btnEfectivo_Clicked"
-            Source="efectivo.png"
-            WidthRequest="200"
-            HeightRequest="200"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <Label 
-            Text="Efectivo"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+    <VerticalStackLayout Padding="20" HorizontalOptions="Center" Spacing="20">
 
-        <ImageButton
-            x:Name="btnTarjeta"
-            Clicked="btnTarjeta_Clicked"
-            Source="tarjeta.png"
-            WidthRequest="200"
-            HeightRequest="200"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <Label 
-            Text="Tarjeta"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </HorizontalStackLayout>
+        <Label Text="Elige tu forma de pago" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center"/>
+
+        <!-- Pago en Efectivo -->
+        <Grid HorizontalOptions="Center" ColumnDefinitions="Auto" RowDefinitions="Auto,Auto">
+            <ImageButton Source="efectivo.png" WidthRequest="150" HeightRequest="150"
+                         Clicked="btnEfectivo_Clicked" Grid.Row="0" Grid.Column="0"/>
+            <Label Text="Pago en Efectivo" FontSize="Medium" HorizontalOptions="Center" Grid.Row="1" Grid.Column="0"/>
+        </Grid>
+
+        <!-- Pago con Tarjeta -->
+        <Grid HorizontalOptions="Center" ColumnDefinitions="Auto" RowDefinitions="Auto,Auto">
+            <ImageButton Source="tarjeta.png" WidthRequest="150" HeightRequest="150"
+                         Clicked="btnTarjeta_Clicked" Grid.Row="0" Grid.Column="0"/>
+            <Label Text="Pago con Tarjeta" FontSize="Medium" HorizontalOptions="Center" Grid.Row="1" Grid.Column="0"/>
+        </Grid>
+
+    </VerticalStackLayout>
+
 </ContentPage>
